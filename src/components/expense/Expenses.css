@@ -1,0 +1,27 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.items{
+    display:flex;
+    flex-direction: column;
+    width:60vw;
+    padding: 20px;
+    height:max-content;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(31, 31, 31);  
+}
+.no_expense{
+    color: white;
+    font-size:x-large;
+    font-weight: 900;
+}
+@media only screen and (max-width:1250px) {
+    .items{
+        width: 90vw;
+    }
+}
