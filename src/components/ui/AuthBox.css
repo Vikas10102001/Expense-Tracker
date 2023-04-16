@@ -1,0 +1,15 @@
+.auth-container {
+  position: relative;
+  top: 10rem;
+  width: 90%;
+  max-width: 40rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  background-color: #a892ee;
+  padding: 2rem;
+}
+
+button{
+    position: relative;
+    left:40%;
+}
