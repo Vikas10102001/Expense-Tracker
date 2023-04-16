@@ -1,0 +1,15 @@
+.dropdown{
+    margin-bottom:20px;
+}
+.filter_label{
+    color: white;
+    font-size: x-large;
+}
+.filter_label,select{
+    margin: 0 20px;
+}
+select{
+    width: 80px;
+    font-size: larger;
+    text-align: center;
+}
