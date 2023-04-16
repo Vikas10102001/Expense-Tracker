@@ -3,9 +3,9 @@ import AuthBox from "../ui/AuthBox";
 import CustomInput from "./customInput/CustomInput";
 import { Link } from "react-router-dom";
 
+export default function Login() {
 const handleEmailOnChange = () => {};
 const handlePasswordOnChange = () => {};
-export default function Login() {
   return (
     <AuthBox>
       <CustomInput
@@ -23,7 +23,7 @@ export default function Login() {
 
       <button className="login-signup-logout-button">Login</button>
       <div className="redirect-link">
-        <Link to="Signup">Create an account</Link>
+        <Link to="/signup">Create an account</Link>
       </div>
     </AuthBox>
   );
