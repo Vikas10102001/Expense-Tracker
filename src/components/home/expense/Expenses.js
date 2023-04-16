@@ -1,6 +1,6 @@
 import FilterExpense from "./FilterExpense";
 import ExpenseItems from "./ExpenseItems"
-import ExpenseChart from "../../chart/ExpenseChart"
+import ExpenseChart from "../chart/ExpenseChart"
 import Card from "../../ui/Card"
 import "./Expenses.css"
 const Expenses = (props) => {

@@ -1,4 +1,4 @@
-import Card from "../ui/Card"
+import Card from "../../ui/Card"
 import ChartBar from "./ChartBar";
 import "./ExpenseChart.css"
 const ExpenseChart = (props) => {
