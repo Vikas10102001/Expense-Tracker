@@ -61,6 +61,8 @@ export default function Signup() {
       setInvalidMessage("Password must contain atleast 8 character");
     } else if (confirmPasswordValidity === false) {
       setInvalidMessage("Password does not match!");
+    } else if (emailValidity && passwordValidity && confirmPasswordValidity) {
+      setInvalidMessage("");
     }
     setFormIsValid(
       emailValidity && passwordValidity && confirmPasswordValidity
