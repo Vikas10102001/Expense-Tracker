@@ -10,11 +10,17 @@
   padding: 2rem;
 }
 
-.auth-container button{
+.auth-container button {
   position: relative;
   left: 40%;
 }
-.redirect-link{
+.redirect-link,
+.invalid-message {
   width: 100%;
   text-align: center;
+}
+
+.invalid-message {
+  color: red;
+  font-size: 0.8rem;
 }

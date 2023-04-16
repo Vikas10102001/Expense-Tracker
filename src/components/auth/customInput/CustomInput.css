@@ -1,7 +1,6 @@
 .input-container {
   display: flex;
   margin: 1rem 0;
-  
 }
 .input-container label {
   flex: 2;
@@ -14,5 +13,12 @@
   flex: 3;
   padding: 0.5rem;
   border-radius: 10px;
-  border: none;
+  border: 1px solid #5c2476;
+}
+.input-container input:focus {
+  outline: none;
+}
+.input-container.invalid input {
+  border-color: red;
+  background: #fbdada;
 }
