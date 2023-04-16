@@ -1,6 +1,7 @@
 .auth-container {
   position: relative;
   top: 10rem;
+  left: 30vw;
   width: 90%;
   max-width: 40rem;
   border-radius: 10px;
@@ -9,7 +10,11 @@
   padding: 2rem;
 }
 
-button{
-    position: relative;
-    left:40%;
+.auth-container button{
+  position: relative;
+  left: 40%;
+}
+.redirect-link{
+  width: 100%;
+  text-align: center;
 }
