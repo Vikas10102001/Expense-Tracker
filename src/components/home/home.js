@@ -1,8 +1,8 @@
 import React from "react";
-import Expenses from "./components/home/expense/Expenses";
-import AddExpense from "./components/home/new-expense/AddExpense";
-import "./components/home/expense/Expenses.css";
-import Card from "./components/ui/Card";
+import Expenses from "./expense/Expenses";
+import AddExpense from "./new-expense/AddExpense";
+import "./expense/Expenses.css";
+import Card from "../ui/Card";
 import { useState } from "react";
 
 let InitialExpense = [
@@ -31,7 +31,7 @@ let InitialExpense = [
     amount: 1800,
   },
 ];
-export default function home() {
+export default function Home() {
   const [expense, setExpenses] = useState(InitialExpense);
   const [filteredYear, setFilteredYear] = useState("2022");
   const newExpenseHandler = (ExpenseItem) => {
