@@ -55,6 +55,7 @@ export default function Signup() {
   const { isValid: confirmPasswordValidity } = enteredConfirmPassword;
   useEffect(() => {
     if (emailValidity === false) {
+      //this condition is false initially because null===false is true so the message will not appear if the fields are untouched
       setInvalidMessage("Please enter valid email");
     } else if (passwordValidity == false) {
       setInvalidMessage("Password must contain atleast 8 character");
