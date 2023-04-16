@@ -1,0 +1,9 @@
+.login-signup-logout-button {
+    background-color: #5c2476;
+    width: 5rem;
+    height: 2rem;
+    color: white;
+    border-radius: 10px;
+    font-size: 1rem;
+    border: 1px solid white;
+  }

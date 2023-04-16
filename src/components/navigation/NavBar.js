@@ -1,5 +1,6 @@
 import React from "react";
 import "./NavBar.css";
+import "../../App.css";
 export default function NavBar() {
   const handleLogout = () => {};
   return (
@@ -7,7 +8,7 @@ export default function NavBar() {
       <span className="logo">
         <a href="Home">Expense Tracker</a>
       </span>
-      <button className="logout-button" onClick={handleLogout}>
+      <button className="login-signup-logout-button" onClick={handleLogout}>
         logout
       </button>
     </div>
