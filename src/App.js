@@ -10,9 +10,7 @@ function App() {
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      console.log(user);
       navigate("/home");
-      const uid = user.uid;
     } else {
       navigate("/login");
     }
