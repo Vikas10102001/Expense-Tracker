@@ -4,10 +4,12 @@ import CustomInput from "./customInput/CustomInput";
 import { Link } from "react-router-dom";
 import validatePassword from "../../utils/passwordValidator";
 import validateEmail from "../../utils/emailValidator";
+import { useDispatch } from "react-redux";
+import { login } from "../../store/thunks/login";
 
 export default function Login() {
+  const dispatch = useDispatch();
   const [formIsValid, setFormIsValid] = useState(false);
-  console.log(formIsValid);
   const [invalidMessage, setInvalidMessage] = useState("");
   const [enteredEmail, dispatchEmail] = useReducer(
     (state, action) => {
@@ -71,7 +73,7 @@ export default function Login() {
 
   const handleLogin = () => {
     console.log(enteredEmail.val, enteredPassword.val);
-    //to do
+    dispatch(login({ email: enteredEmail.val, password: enteredPassword.val }));
   };
   return (
     <AuthBox>
