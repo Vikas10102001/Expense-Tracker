@@ -8,6 +8,7 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #b8b6b6;
+  z-index: 100;
 }
 .logo {
   margin: 0 1rem;
