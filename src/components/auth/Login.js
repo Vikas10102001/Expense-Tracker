@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useRef, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import AuthBox from "../ui/AuthBox";
 import CustomInput from "./customInput/CustomInput";
 import { Link } from "react-router-dom";
@@ -7,6 +7,7 @@ import validateEmail from "../../utils/emailValidator";
 
 export default function Login() {
   const [formIsValid, setFormIsValid] = useState(false);
+  console.log(formIsValid);
   const [invalidMessage, setInvalidMessage] = useState("");
   const [enteredEmail, dispatchEmail] = useReducer(
     (state, action) => {
@@ -33,14 +34,26 @@ export default function Login() {
   const { isValid: emailValidity } = enteredEmail;
   const { isValid: passwordValidity } = enteredPassword;
   useEffect(() => {
-    if (emailValidity === false) {
-      setInvalidMessage("Please enter valid email");
-    } else if (passwordValidity == false) {
-      setInvalidMessage("Please enter valid password");
-    } else if (emailValidity && passwordValidity) {
+    const timeout = setTimeout(() => {
+      if (emailValidity === false) {
+        setInvalidMessage("Please enter valid email");
+      } else if (passwordValidity === false) {
+        setInvalidMessage("Please enter valid password");
+      }
+    }, 1500);
+    if (
+      (emailValidity && passwordValidity) ||
+      (emailValidity && passwordValidity === null) ||
+      (passwordValidity && emailValidity === null)
+    ) {
       setInvalidMessage("");
     }
+
     setFormIsValid(emailValidity && passwordValidity);
+
+    return () => {
+      clearTimeout(timeout);
+    };
   }, [emailValidity, passwordValidity]);
 
   const handleEmailOnChange = (e) => {
@@ -54,6 +67,11 @@ export default function Login() {
   };
   const handleValidatePassword = () => {
     dispatchPassword({ type: "INPUT_VALIDITY" });
+  };
+
+  const handleLogin = () => {
+    console.log(enteredEmail.val, enteredPassword.val);
+    //to do
   };
   return (
     <AuthBox>
@@ -76,7 +94,13 @@ export default function Login() {
         onBlur={handleValidatePassword}
       />
       <div className="invalid-message">{invalidMessage}</div>
-      <button className="login-signup-logout-button">Login</button>
+      <button
+        className="login-signup-logout-button"
+        onClick={handleLogin}
+        disabled={!formIsValid}
+      >
+        Login
+      </button>
       <div className="redirect-link">
         <Link to="/signup">Create an account</Link>
       </div>

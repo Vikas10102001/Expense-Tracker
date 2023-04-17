@@ -54,19 +54,43 @@ export default function Signup() {
   const { isValid: passwordValidity } = enteredPassword;
   const { isValid: confirmPasswordValidity } = enteredConfirmPassword;
   useEffect(() => {
-    if (emailValidity === false) {
-      //this condition is false initially because null===false is true so the message will not appear if the fields are untouched
-      setInvalidMessage("Please enter valid email");
-    } else if (passwordValidity == false) {
-      setInvalidMessage("Password must contain atleast 8 character");
-    } else if (confirmPasswordValidity === false) {
-      setInvalidMessage("Password does not match!");
-    } else if (emailValidity && passwordValidity && confirmPasswordValidity) {
-      setInvalidMessage("");
-    }
+    const timeout = setTimeout(() => {
+      if (emailValidity === false) {
+        //this condition is false initially because null===false is true so the message will not appear if the fields are untouched
+        setInvalidMessage("Please enter valid email");
+      } else if (passwordValidity === false) {
+        setInvalidMessage("Password must contain atleast 8 character");
+      } else if (confirmPasswordValidity === false) {
+        setInvalidMessage("Password does not match!");
+      } else {
+        setInvalidMessage("");
+      }
+    }, 1500);
+
+    // const setInvalidMessageEmpty = [
+    //   emailValidity && passwordValidity && confirmPasswordValidity,
+    //   emailValidity &&
+    //     passwordValidity === null &&
+    //     confirmPasswordValidity === null,
+    //   emailValidity && passwordValidity && confirmPasswordValidity === null,
+    //   emailValidity === null && passwordValidity && confirmPasswordValidity,
+    //   emailValidity === null &&
+    //     passwordValidity === null &&
+    //     confirmPasswordValidity,
+    //   emailValidity === null &&
+    //     passwordValidity &&
+    //     confirmPasswordValidity === null,
+    //   emailValidity && passwordValidity === null && confirmPasswordValidity,
+    // ];
+    // if (!setInvalidMessageEmpty.includes(false)) {
+    // }
     setFormIsValid(
       emailValidity && passwordValidity && confirmPasswordValidity
     );
+
+    return () => {
+      clearTimeout(timeout);
+    };
   }, [emailValidity, passwordValidity, confirmPasswordValidity]);
 
   const handleEmailOnChange = (e) => {
@@ -86,6 +110,15 @@ export default function Signup() {
   };
   const handleValidateConfirmPassword = () => {
     dispatchConfirmPassword({ type: "INPUT_VALIDITY" });
+  };
+  const handleSignUp = () => {
+    console.log(
+      enteredEmail.val,
+      enteredPassword.val,
+      enteredConfirmPassword.val
+    );
+
+    //to do
   };
   return (
     <AuthBox>
@@ -117,7 +150,13 @@ export default function Signup() {
         value={enteredConfirmPassword.val}
       />
       <div className="invalid-message">{invalidMessage}</div>
-      <button className="login-signup-logout-button">Signup</button>
+      <button
+        className="login-signup-logout-button"
+        disabled={!formIsValid}
+        onClick={handleSignUp}
+      >
+        Signup
+      </button>
       <div className="redirect-link">
         <Link to="/login">Already have an account?</Link>
       </div>

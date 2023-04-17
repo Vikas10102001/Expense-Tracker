@@ -1,9 +1,9 @@
 .auth-container {
   position: relative;
   top: 10rem;
-  left: 30vw;
+  left: 35vw;
   width: 90%;
-  max-width: 40rem;
+  max-width: 30rem;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   background-color: #a892ee;
@@ -12,7 +12,10 @@
 
 .auth-container button {
   position: relative;
-  left: 40%;
+  left: 38%;
+}
+.auth-container button:disabled {
+  background-color: #d6d3d3;
 }
 .redirect-link,
 .invalid-message {
