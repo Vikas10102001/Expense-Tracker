@@ -4,8 +4,10 @@ import CustomInput from "./customInput/CustomInput";
 import AuthBox from "../ui/AuthBox";
 import validateEmail from "../../utils/emailValidator";
 import validatePassword from "../../utils/passwordValidator";
-
+import { signup } from "../../store/thunks/signup";
+import { useDispatch } from "react-redux";
 export default function Signup() {
+  const dispatch = useDispatch();
   const [formIsValid, setFormIsValid] = useState(false);
   const [invalidMessage, setInvalidMessage] = useState("");
   const [enteredEmail, dispatchEmail] = useReducer(
@@ -67,23 +69,6 @@ export default function Signup() {
       }
     }, 1500);
 
-    // const setInvalidMessageEmpty = [
-    //   emailValidity && passwordValidity && confirmPasswordValidity,
-    //   emailValidity &&
-    //     passwordValidity === null &&
-    //     confirmPasswordValidity === null,
-    //   emailValidity && passwordValidity && confirmPasswordValidity === null,
-    //   emailValidity === null && passwordValidity && confirmPasswordValidity,
-    //   emailValidity === null &&
-    //     passwordValidity === null &&
-    //     confirmPasswordValidity,
-    //   emailValidity === null &&
-    //     passwordValidity &&
-    //     confirmPasswordValidity === null,
-    //   emailValidity && passwordValidity === null && confirmPasswordValidity,
-    // ];
-    // if (!setInvalidMessageEmpty.includes(false)) {
-    // }
     setFormIsValid(
       emailValidity && passwordValidity && confirmPasswordValidity
     );
@@ -117,8 +102,9 @@ export default function Signup() {
       enteredPassword.val,
       enteredConfirmPassword.val
     );
-
-    //to do
+    dispatch(
+      signup({ email: enteredEmail.val, password: enteredPassword.val })
+    );
   };
   return (
     <AuthBox>
