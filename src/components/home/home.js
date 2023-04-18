@@ -1,54 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Expenses from "./expense/Expenses";
 import AddExpense from "./new-expense/AddExpense";
 import "./expense/Expenses.css";
 import Card from "../ui/Card";
 import { useState } from "react";
+import { getDatabase, ref, set, onValue } from "firebase/database";
 
-let InitialExpense = [
-  {
-    id: "asdada21",
-    date: new Date(2021, 6, 5),
-    title: "Car Insurance",
-    amount: 206,
-  },
-  {
-    id: "ads1",
-    date: new Date(2021, 7, 15),
-    title: "Car Service",
-    amount: 149,
-  },
-  {
-    id: "asads66",
-    date: new Date(2021, 8, 5),
-    title: "New phone",
-    amount: 1120,
-  },
-  {
-    id: "jhhsd91",
-    date: new Date(2021, 5, 30),
-    title: "share",
-    amount: 1800,
-  },
-];
 export default function Home() {
-  const [expense, setExpenses] = useState(InitialExpense);
+  const [expense, setExpenses] = useState();
+  const userId = JSON.parse(localStorage.getItem("user")).uid;
+  useEffect(() => {
+    const db = getDatabase();
+    const starCountRef = ref(db, "users/" + userId);
+    onValue(starCountRef, (snapshot) => {
+      const data = snapshot.val();
+      console.log(data);
+      setExpenses(data);
+    });
+  }, [userId]);
   const [filteredYear, setFilteredYear] = useState("2022");
   const newExpenseHandler = (ExpenseItem) => {
     const newExpenseItem = {
-      id: Math.random().toString(),
       ...ExpenseItem,
     };
     //  console.log(newExpenseItem)
     setExpenses((prevState) => {
       return [newExpenseItem, ...prevState];
     });
-    // console.log(expense)
   };
 
-  const filteredExpense = expense.filter((item) => {
-    return item.date.getFullYear().toString() === filteredYear;
-  });
+  let filteredExpense=[];
+  if (expense) {
+    filteredExpense = expense.filter((item) => {
+      return item.date.getFullYear().toString() === filteredYear;
+    });
+  }
 
   return (
     <div className="container">
