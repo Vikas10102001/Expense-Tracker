@@ -7,7 +7,7 @@ import { useState } from "react";
 import { getDatabase, ref, set, onValue } from "firebase/database";
 
 export default function Home() {
-  const [expense, setExpenses] = useState();
+  const [expense, setExpenses] = useState([]);
   const userId = JSON.parse(localStorage.getItem("user")).uid;
   useEffect(() => {
     const db = getDatabase();
@@ -25,15 +25,17 @@ export default function Home() {
     };
 
     const db = getDatabase();
-    set(ref(db, "users/" + userId), newExpenseItem);
+    const expenseRef = ref(db, "users/" + userId);
+    expenseRef.push(newExpenseItem);
 
     setExpenses((prevState) => {
       return [newExpenseItem, ...prevState];
     });
   };
 
-  let filteredExpense=[];
+  let filteredExpense = [];
   if (expense) {
+    console.log(expense);
     filteredExpense = expense.filter((item) => {
       return item.date.getFullYear().toString() === filteredYear;
     });
