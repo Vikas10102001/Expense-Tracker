@@ -20,6 +20,7 @@ export default function Home() {
       onValue(starCountRef, (snapshot) => {
         const data = snapshot.val();
         console.log(data);
+        //todo:format data to store it as state
       });
     }
   }, [user, navigate]);
