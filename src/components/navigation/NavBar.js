@@ -1,8 +1,15 @@
 import React from "react";
 import "./NavBar.css";
 import "../../App.css";
+import { auth } from "../../firebase";
 export default function NavBar() {
-  const handleLogout = () => {};
+  const handleLogout = async () => {
+    try {
+      await auth.signOut();
+    } catch (er) {
+      console.log(er);
+    }
+  };
   return (
     <div className="nav-bar">
       <span className="logo">
