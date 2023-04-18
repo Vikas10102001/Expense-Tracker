@@ -2,12 +2,18 @@ import React from "react";
 import "./NavBar.css";
 import "../../App.css";
 import { auth } from "../../firebase";
+import { useNavigate } from "react-router-dom";
 export default function NavBar() {
+  const navigate=useNavigate()
   const handleLogout = async () => {
-    try {
-      await auth.signOut();
-    } catch (er) {
-      console.log(er);
+    try
+    {
+    await auth.signOut()
+    navigate("/login")
+    }
+    catch(er)
+    {
+      console.log(er)
     }
   };
   return (
