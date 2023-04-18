@@ -23,7 +23,10 @@ export default function Home() {
     const newExpenseItem = {
       ...ExpenseItem,
     };
-    //  console.log(newExpenseItem)
+
+    const db = getDatabase();
+    set(ref(db, "users/" + userId), newExpenseItem);
+
     setExpenses((prevState) => {
       return [newExpenseItem, ...prevState];
     });
