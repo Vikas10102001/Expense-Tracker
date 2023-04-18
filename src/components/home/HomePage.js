@@ -7,7 +7,7 @@ import { useState } from "react";
 import { getDatabase, ref, onValue, set, push } from "firebase/database";
 import { useNavigate } from "react-router-dom";
 
-export default function Home() {
+export default function HomePage() {
   const [expense, setExpenses] = useState([]);
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));

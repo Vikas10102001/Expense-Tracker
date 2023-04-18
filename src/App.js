@@ -2,9 +2,9 @@ import NavBar from "./components/navigation/NavBar";
 import Login from "./components/auth/Login";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Signup from "./components/auth/Signup";
-import Home from "./components/home/Home";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
+import HomePage from "./components/home/HomePage";
 
 function App() {
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/home" element={<HomePage />} />
       </Routes>
     </>
   );
