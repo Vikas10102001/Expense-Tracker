@@ -15,9 +15,7 @@ function App() {
         localStorage.setItem("user", JSON.stringify(user));
         navigate("/home");
       } else {
-        console.log("here");
         localStorage.removeItem("user");
-        navigate("/login");
       }
     });
 
