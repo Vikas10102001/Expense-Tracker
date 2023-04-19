@@ -8,9 +8,9 @@ import { getDatabase, ref, onValue, set, push } from "firebase/database";
 import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
-  const [expense, setExpenses] = useState([]);
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
+  const [expense, setExpenses] = useState([]);
   useEffect(() => {
     if (!user) {
       navigate("/login");
@@ -19,13 +19,20 @@ export default function HomePage() {
       const starCountRef = ref(db, "expenses/" + user.uid);
       onValue(starCountRef, (snapshot) => {
         const data = snapshot.val();
-        console.log(data);
-        //todo:format data to store it as state
+        const expenses = [];
+        for (let key in data) {
+          expenses.push({ ...data[key], date: new Date(data[key].date) });
+        }
+        setExpenses((prevExpenses) => {
+          if (prevExpenses.length !== expenses.length) {
+            return expenses;
+          }
+          return prevExpenses;
+        });
       });
     }
   }, [user, navigate]);
-  const [filteredYear, setFilteredYear] = useState("2022");
-
+  const [filteredYear, setFilteredYear] = useState("2023");
 
   const newExpenseHandler = (ExpenseItem) => {
     const newExpenseItem = {
@@ -37,12 +44,16 @@ export default function HomePage() {
     const newExpenseRef = push(expenseRef);
     set(newExpenseRef, newExpenseItem);
     setExpenses((prevState) => {
-      return [newExpenseItem, ...prevState];
+      return [
+        { ...newExpenseItem, date: new Date(newExpenseItem.date) },
+        ...prevState,
+      ];
     });
   };
 
   let filteredExpense = [];
   if (expense) {
+    console.log(expense);
     filteredExpense = expense.filter((item) => {
       return item.date.getFullYear().toString() === filteredYear;
     });
