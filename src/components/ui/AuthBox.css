@@ -22,8 +22,18 @@
   width: 100%;
   text-align: center;
 }
-
+.auth-container a {
+  text-decoration: none;
+}
+.auth-container a:hover {
+  text-decoration: underline;
+}
 .invalid-message {
   color: red;
   font-size: 0.8rem;
+}
+@media only screen and (max-width: 1150px) {
+  .auth-container {
+    left: calc(50vw - 15rem);
+  }
 }

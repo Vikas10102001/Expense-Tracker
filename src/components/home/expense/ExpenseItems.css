@@ -31,7 +31,6 @@
     align-items: center;
     background-color: #40005d;
     border: 1px solid white;
-    border-radius: 12px;
     height: 60px;
     width: 50px;
     font-size: larger;
@@ -41,7 +40,6 @@
 @media only screen and (max-width:1250px) {
     .item{
         width: 80vw;
-        flex-wrap: wrap;
     }
     .single_item{
         padding: 0 40px;
@@ -52,11 +50,15 @@
     .title{
         font-size: medium;
         font-weight: 500;
+        width: 200px;
+        word-wrap: break-word;
     }
     .price{
         font-size: small;
         font-weight: 500;
-        height: 45px;
+        height: 40px;
+        padding: 0;
+        border-radius: 12px !important;
     }
     .item{
         height: 100px;
