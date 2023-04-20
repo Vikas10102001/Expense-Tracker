@@ -1,10 +1,22 @@
 .login-signup-logout-button {
-    background-color: #5c2476;
-    width: 5rem;
-    height: 2rem;
-    color: white;
-    border-radius: 10px;
-    font-size: 1rem;
-    border: 1px solid white;
-    cursor: pointer;
-  }
+  background-color: #5c2476;
+  width: 5rem;
+  height: 2rem;
+  color: white;
+  border-radius: 10px;
+  font-size: 1rem;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.spinner {
+  position: absolute;
+  top: 3.5rem;
+  width: 100vw;
+  height: calc(100vh - 3.5rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  background-color: rgba(128, 128, 128, 0.5);
+}
