@@ -20,7 +20,7 @@ export default function NavBar() {
         <a href="Home">Expense Tracker</a>
       </span>
       {isLoggedIn && (
-        <button className="login-signup-logout-button" onClick={handleLogout}>
+        <button className="login-signup-logout-button logout-button" onClick={handleLogout}>
           logout
         </button>
       )}

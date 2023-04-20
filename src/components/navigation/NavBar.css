@@ -19,3 +19,13 @@
   font-size: 1.5rem;
   font-weight: bold;
 }
+
+.logout-button {
+  font-size: 0.9rem;
+  margin-right: 2rem;
+}
+.logout-button:hover {
+  background-color: white;
+  color: #5c2476;
+  border: 1px solid #5c2476;
+}
