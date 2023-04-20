@@ -12,6 +12,7 @@
   width: 60vw;
   padding: 20px;
   height: max-content;
+  min-height: 30rem;
   align-items: center;
   justify-content: center;
   background-color: rgb(31, 31, 31);

@@ -11,10 +11,12 @@ export default function HomePage() {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
   const [expense, setExpenses] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     if (!user) {
       navigate("/login");
     } else {
+      setIsLoading(true);
       const db = getDatabase();
       const starCountRef = ref(db, "expenses/" + user.uid);
       onValue(starCountRef, (snapshot) => {
@@ -29,6 +31,7 @@ export default function HomePage() {
           }
           return prevExpenses;
         });
+        setIsLoading(false);
       });
     }
   }, [user, navigate]);
@@ -50,21 +53,19 @@ export default function HomePage() {
       ];
     });
   };
-
   let filteredExpense = [];
   if (expense) {
-    console.log(expense);
     filteredExpense = expense.filter((item) => {
       return item.date.getFullYear().toString() === filteredYear;
     });
   }
-
   return (
     <div className="container">
       <Card className="additems">
         <AddExpense onGettingNewExpense={newExpenseHandler} />
       </Card>
       <Expenses
+        isLoading={isLoading}
         items={filteredExpense}
         selectedYear={filteredYear}
         setYear={setFilteredYear}

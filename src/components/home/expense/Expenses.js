@@ -3,9 +3,9 @@ import ExpenseItems from "./ExpenseItems";
 import ExpenseChart from "../chart/ExpenseChart";
 import Card from "../../ui/Card";
 import "./Expenses.css";
+import { RotatingLines } from "react-loader-spinner";
 const Expenses = (props) => {
-  // console.log(props.items)
-
+  const isLoading = props.isLoading;
   return (
     <Card className="items ">
       <FilterExpense
@@ -13,7 +13,9 @@ const Expenses = (props) => {
         setYear={props.setYear}
       />
       <ExpenseChart items={props.items} />
-      {props.items.length === 0 ? (
+      {isLoading ? (
+        <RotatingLines strokeColor="white" height={50} width={100} />
+      ) : props.items.length === 0 ? (
         <p className="no_expense">No Expenses</p>
       ) : (
         props.items.map((expense, ind) => (
