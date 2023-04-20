@@ -21,7 +21,7 @@ export default function NavBar() {
       </span>
       {isLoggedIn && (
         <button className="login-signup-logout-button logout-button" onClick={handleLogout}>
-          logout
+          Logout
         </button>
       )}
     </div>
