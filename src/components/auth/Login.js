@@ -7,6 +7,7 @@ import validateEmail from "../../utils/emailValidator";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../store/thunks/login";
 import { authErrorAlert } from "../../utils/authErrorAlert";
+import authSlice from "../../store/slice/auth";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -17,7 +18,8 @@ export default function Login() {
     if (authError) {
       authErrorAlert(authError);
     }
-  }, [authError]);
+    dispatch(authSlice.actions.clearError());
+  }, [authError,dispatch]);
 
   const [formIsValid, setFormIsValid] = useState(false);
   const [invalidMessage, setInvalidMessage] = useState("");
