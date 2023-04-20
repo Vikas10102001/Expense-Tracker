@@ -9,6 +9,11 @@ const authSlice = createSlice({
     isLoading: false,
     error: null,
   },
+  reducers: {
+    clearError(state, action) {
+      return { ...state, error: null };
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(signup.fulfilled, (state, action) => {
       return { ...state, isLoading: false, data: action.payload };
