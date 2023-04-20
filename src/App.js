@@ -7,10 +7,14 @@ import { useEffect } from "react";
 import HomePage from "./components/home/HomePage";
 import { useSelector } from "react-redux";
 import { RotatingLines } from "react-loader-spinner";
+import Alert from "./components/ui/Alert/Alert";
 
 function App() {
   const isLoading = useSelector((state) => {
     return state.auth.isLoading;
+  });
+  const alert = useSelector((state) => {
+    return state.alert;
   });
   const navigate = useNavigate();
   const auth = getAuth();
@@ -43,6 +47,8 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/home" element={<HomePage />} />
       </Routes>
+
+      {alert.isOpen && <Alert message={alert.message} />}
     </>
   );
 }
