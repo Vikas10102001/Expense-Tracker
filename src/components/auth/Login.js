@@ -4,11 +4,21 @@ import CustomInput from "./customInput/CustomInput";
 import { Link } from "react-router-dom";
 import validatePassword from "../../utils/passwordValidator";
 import validateEmail from "../../utils/emailValidator";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../store/thunks/login";
+import { authErrorAlert } from "../../utils/authErrorAlert";
 
 export default function Login() {
   const dispatch = useDispatch();
+  const authError = useSelector((state) => {
+    return state.auth.error;
+  });
+  useEffect(() => {
+    if (authError) {
+      authErrorAlert(authError);
+    }
+  }, [authError]);
+
   const [formIsValid, setFormIsValid] = useState(false);
   const [invalidMessage, setInvalidMessage] = useState("");
   const [enteredEmail, dispatchEmail] = useReducer(
