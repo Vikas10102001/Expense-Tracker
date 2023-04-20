@@ -5,8 +5,8 @@
   width: 90%;
   max-width: 30rem;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  background-color: #a892ee;
+  box-shadow: 0 2px 8px #00000042;
+  background-color: #b2b1e9;
   padding: 2rem;
 }
 
