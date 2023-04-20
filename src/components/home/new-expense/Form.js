@@ -14,7 +14,7 @@ const FormAddExpense = (props) => {
   };
   const submitHandler = (event) => {
     event.preventDefault();
-    
+
     const newExpense = {
       title: enteredTitle,
       date: enteredDate,
@@ -30,11 +30,18 @@ const FormAddExpense = (props) => {
     <form onSubmit={submitHandler}>
       <label>
         Title:
-        <input type="text" value={enteredTitle} onChange={setTitleHandler} />
+        <input
+          type="text"
+          required={true}
+          maxLength={30}
+          value={enteredTitle}
+          onChange={setTitleHandler}
+        />
       </label>
       <label>
         Date:
         <input
+          required={true}
           type="date"
           min="2019-01-01"
           value={enteredDate}
@@ -44,6 +51,7 @@ const FormAddExpense = (props) => {
       <label>
         Amount:
         <input
+          required={true}
           type="Number"
           min="5"
           value={enteredAmount}
