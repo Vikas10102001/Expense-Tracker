@@ -4,16 +4,14 @@ import "../../App.css";
 import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 export default function NavBar() {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
+  const isLoggedIn = localStorage.getItem("user");
   const handleLogout = async () => {
-    try
-    {
-    await auth.signOut()
-    navigate("/login")
-    }
-    catch(er)
-    {
-      console.log(er)
+    try {
+      await auth.signOut();
+      navigate("/login");
+    } catch (er) {
+      console.log(er);
     }
   };
   return (
@@ -21,9 +19,11 @@ export default function NavBar() {
       <span className="logo">
         <a href="Home">Expense Tracker</a>
       </span>
-      <button className="login-signup-logout-button" onClick={handleLogout}>
-        logout
-      </button>
+      {isLoggedIn && (
+        <button className="login-signup-logout-button" onClick={handleLogout}>
+          logout
+        </button>
+      )}
     </div>
   );
 }
