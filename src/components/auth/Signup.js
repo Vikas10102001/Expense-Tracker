@@ -5,9 +5,18 @@ import AuthBox from "../ui/AuthBox";
 import validateEmail from "../../utils/emailValidator";
 import validatePassword from "../../utils/passwordValidator";
 import { signup } from "../../store/thunks/signup";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { authErrorAlert } from "../../utils/authErrorAlert";
 export default function Signup() {
   const dispatch = useDispatch();
+  const authError = useSelector((state) => {
+    return state.auth.error;
+  });
+  useEffect(() => {
+    if (authError) {
+      authErrorAlert(authError);
+    }
+  }, [authError]);
   const [formIsValid, setFormIsValid] = useState(false);
   const [invalidMessage, setInvalidMessage] = useState("");
   const [enteredEmail, dispatchEmail] = useReducer(
