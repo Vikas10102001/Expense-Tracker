@@ -29,3 +29,8 @@
   color: #5c2476;
   border: 1px solid #5c2476;
 }
+@media only screen and (max-width:750px){
+  .logo a{
+    font-size: 1.2rem;
+  }
+}

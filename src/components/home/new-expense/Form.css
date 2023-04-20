@@ -1,41 +1,48 @@
 form {
-    width: 50vw;
-    height: max-content;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    color: black;
-    background-color: #8b82a7;
-    border-radius: 25px;
-    font-size: medium;
+  width: 40vw;
+  height: max-content;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  background-color: #b2b1e9;
+  border-radius: 25px;
+  font-size: medium;
 }
 
 form input,
 button {
-    margin: 10px;
+  margin: 10px;
 }
 
 form input {
-    border-radius: 6px;
-    width: 250px;
-    height: 35px;
-    font-size: medium;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    max-width: 100%;
+  border-radius: 6px;
+  width: 250px;
+  height: 35px;
+  font-size: medium;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  max-width: 100%;
 }
 
 form button {
-    background-color:#40005d;
-    color: white;
-    border:1px solid #40005d;
-    width: 120px;
-    height: 40px;
-    border-radius: 15px;
-    font-size: medium;
+  background-color: #40005d;
+  color: white;
+  border: 1px solid #40005d;
+  width: 120px;
+  height: 40px;
+  border-radius: 15px;
+  font-size: medium;
 }
-@media only screen and (max-width:1250px) {
-    form{
-        width: 80vw;
-    }
+@media only screen and (max-width: 1250px) {
+  form {
+    width: 80vw;
+  }
+}
+@media only screen and (max-width: 550px) {
+  form {
+    width: 90vw;
+  }
 }

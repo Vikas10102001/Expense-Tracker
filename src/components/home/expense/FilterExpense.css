@@ -13,3 +13,15 @@ select{
     font-size: larger;
     text-align: center;
 }
+@media only screen and (max-width:750px){
+    .dropdown{
+        display: flex;
+    }
+    .filter_label{
+        font-size: large;
+    }
+    select{
+        width: 60px;
+        font-size: medium;
+    }
+}
