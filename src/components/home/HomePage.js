@@ -23,7 +23,11 @@ export default function HomePage() {
         const data = snapshot.val();
         const expenses = [];
         for (let key in data) {
-          expenses.push({ ...data[key], date: new Date(data[key].date) });
+          expenses.push({
+            ...data[key],
+            date: new Date(data[key].date),
+            key: key,
+          });
         }
         setExpenses((prevExpenses) => {
           if (prevExpenses.length !== expenses.length) {
@@ -46,15 +50,24 @@ export default function HomePage() {
     const expenseRef = ref(db, "expenses/" + user.uid);
     const newExpenseRef = push(expenseRef);
     set(newExpenseRef, newExpenseItem);
-    setExpenses((prevState) => {
-      return [
-        { ...newExpenseItem, date: new Date(newExpenseItem.date) },
-        ...prevState,
-      ];
+
+    onValue(newExpenseRef, (snapshot) => {
+      const newExpenseKey = snapshot.key;
+      setExpenses((prevState) => {
+        return [
+          {
+            ...newExpenseItem,
+            date: new Date(newExpenseItem.date),
+            key: newExpenseKey,
+          },
+          ...prevState,
+        ];
+      });
     });
   };
   let filteredExpense = [];
   if (expense) {
+    console.log(expense);
     filteredExpense = expense.filter((item) => {
       return item.date.getFullYear().toString() === filteredYear;
     });
