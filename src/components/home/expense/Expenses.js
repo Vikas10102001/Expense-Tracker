@@ -18,8 +18,8 @@ const Expenses = (props) => {
       ) : props.items.length === 0 ? (
         <p className="no_expense">No Expenses</p>
       ) : (
-        props.items.map((expense, ind) => (
-          <ExpenseItems item={expense} key={ind}></ExpenseItems>
+        props.items.map((expense) => (
+          <ExpenseItems item={expense} key={expense.key}></ExpenseItems>
         ))
       )}
     </Card>
