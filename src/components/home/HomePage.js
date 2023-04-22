@@ -32,7 +32,6 @@ export default function HomePage() {
         }
         expenses.reverse()
         setExpenses((prevExpenses) => {
-          console.log('here')
           if (prevExpenses.length !== expenses.length) {
             return expenses;
           }
@@ -63,7 +62,6 @@ export default function HomePage() {
   };
   let filteredExpense = [];
   if (expense) {
-    console.log(expense);
     filteredExpense = expense.filter((item) => {
       return item.date.getFullYear().toString() === filteredYear;
     });

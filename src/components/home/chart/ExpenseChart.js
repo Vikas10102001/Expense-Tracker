@@ -22,7 +22,6 @@ const ExpenseChart = (props) => {
     }
     const dataPointValues=dataPoints.map((dataPoint)=>dataPoint.value);
     const totalMax=Math.max(...dataPointValues)
-    // console.log(dataPoints,totalMax)
     return (
         <Card className="chart_container">
             {dataPoints.map((dataPoint) => <ChartBar label={dataPoint.label} 

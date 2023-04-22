@@ -3,7 +3,6 @@ const ChartBar = (props) => {
     let barFillHeight = '0%';
     if (props.value > 0)
         barFillHeight = Math.round((props.value / props.maxVal) * 100 )+ "%";
-    // console.log(barFillHeight);
     return (
         <div className="bar_container">
             <div className="bar">

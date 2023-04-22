@@ -108,11 +108,6 @@ export default function Signup() {
     dispatchConfirmPassword({ type: "INPUT_VALIDITY" });
   };
   const handleSignUp = () => {
-    console.log(
-      enteredEmail.val,
-      enteredPassword.val,
-      enteredConfirmPassword.val
-    );
     dispatch(
       signup({ email: enteredEmail.val, password: enteredPassword.val })
     );

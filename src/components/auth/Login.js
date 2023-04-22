@@ -84,7 +84,6 @@ export default function Login() {
   };
 
   const handleLogin = () => {
-    console.log(enteredEmail.val, enteredPassword.val);
     dispatch(login({ email: enteredEmail.val, password: enteredPassword.val }));
   };
   return (

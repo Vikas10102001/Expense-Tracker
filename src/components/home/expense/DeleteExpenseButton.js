@@ -9,7 +9,6 @@ export default function DeleteExpenseButton({ expense }) {
     const user = JSON.parse(localStorage.getItem("user"));
     const db = getDatabase();
     const expenseRef = ref(db, "expenses/" + user.uid + "/" + expenseId);
-    console.log(expenseRef);
     remove(expenseRef)
       .then(() => {
         dispatchAlert("Expense deleted successfully", "success");
