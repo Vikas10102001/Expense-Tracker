@@ -1,9 +1,9 @@
 import React from "react";
-import "./Alert.css"
-export default function Alert({ message }) {
+import "./Alert.css";
+export default function Alert({ message, variant }) {
   return (
-    <div className="alertContainer">
-      <span className="alertMessage">‼️  {message}  ‼️</span>
+    <div className={`alertContainer ${variant}`}>
+      <span className="alertMessage">{message} </span>
     </div>
   );
 }

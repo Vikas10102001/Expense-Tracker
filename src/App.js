@@ -48,7 +48,7 @@ function App() {
         <Route path="/home" element={<HomePage />} />
       </Routes>
 
-      {alert.isOpen && <Alert message={alert.message} />}
+      {alert.isOpen && <Alert message={alert.message} variant={alert.variant}/>}
     </>
   );
 }
