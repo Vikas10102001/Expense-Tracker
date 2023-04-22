@@ -19,7 +19,7 @@ export default function Login() {
       authErrorAlert(authError);
     }
     dispatch(authSlice.actions.clearError());
-  }, [authError,dispatch]);
+  }, [authError, dispatch]);
 
   const [formIsValid, setFormIsValid] = useState(false);
   const [invalidMessage, setInvalidMessage] = useState("");
@@ -117,6 +117,8 @@ export default function Login() {
       </button>
       <div className="redirect-link">
         <Link to="/signup">Create an account</Link>
+        &nbsp;&nbsp;or&nbsp;&nbsp;
+        <Link to="/forgot-password">Forgot Password</Link>
       </div>
     </AuthBox>
   );
