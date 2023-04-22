@@ -3,7 +3,7 @@ import "./NavBar.css";
 import "../../App.css";
 import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
-import { authErrorAlert } from "../../utils/authErrorAlert";
+import { authErrorAlert } from "../../utils/alert";
 export default function NavBar() {
   const navigate = useNavigate();
   const isLoggedIn = localStorage.getItem("user");

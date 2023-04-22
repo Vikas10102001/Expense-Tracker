@@ -6,7 +6,7 @@ import validatePassword from "../../utils/passwordValidator";
 import validateEmail from "../../utils/emailValidator";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../store/thunks/login";
-import { authErrorAlert } from "../../utils/authErrorAlert";
+import { authErrorAlert } from "../../utils/alert";
 import authSlice from "../../store/slice/auth";
 
 export default function Login() {

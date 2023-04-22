@@ -6,7 +6,7 @@ import validateEmail from "../../utils/emailValidator";
 import validatePassword from "../../utils/passwordValidator";
 import { signup } from "../../store/thunks/signup";
 import { useDispatch, useSelector } from "react-redux";
-import { authErrorAlert } from "../../utils/authErrorAlert";
+import { authErrorAlert } from "../../utils/alert";
 import authSlice from "../../store/slice/auth";
 export default function Signup() {
   const dispatch = useDispatch();
