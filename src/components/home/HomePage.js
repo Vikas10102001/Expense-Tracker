@@ -30,7 +30,9 @@ export default function HomePage() {
             key: key,
           });
         }
+        expenses.reverse()
         setExpenses((prevExpenses) => {
+          console.log('here')
           if (prevExpenses.length !== expenses.length) {
             return expenses;
           }
