@@ -15,18 +15,39 @@ export default function NavBar() {
       authErrorAlert(er);
     }
   };
+  const handleLogin = () => {
+    navigate("/login");
+  };
+  const handleSignup = () => {
+    navigate("/signup");
+  };
   return (
     <div className="nav-bar">
       <span className="logo">
-        <a href="Home">Expense Tracker</a>
+        <a href="home">Expense Tracker</a>
       </span>
-      {isLoggedIn && (
+      {isLoggedIn ? (
         <button
           className="login-signup-logout-button logout-button"
           onClick={handleLogout}
         >
           Logout
         </button>
+      ) : (
+        <div>
+          <button
+            className="login-signup-logout-button logout-button"
+            onClick={handleLogin}
+          >
+            Login
+          </button>
+          <button
+            className="login-signup-logout-button logout-button"
+            onClick={handleSignup}
+          >
+            Signup
+          </button>
+        </div>
       )}
     </div>
   );
