@@ -5,6 +5,7 @@ const alertSlice = createSlice({
   initialState: {
     isOpen: false,
     message: null,
+    variant: null,
   },
   reducers: {
     alertInfo(state, action) {
@@ -12,6 +13,7 @@ const alertSlice = createSlice({
         ...state,
         isOpen: action.payload.isOpen,
         message: action.payload.message,
+        variant: action.payload.variant,
       };
     },
   },
