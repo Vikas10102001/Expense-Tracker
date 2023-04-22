@@ -6,6 +6,7 @@ import Card from "../ui/Card";
 import { useState } from "react";
 import { getDatabase, ref, onValue, set, push } from "firebase/database";
 import { useNavigate } from "react-router-dom";
+import { dispatchAlert } from "../../utils/alert";
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -49,21 +50,14 @@ export default function HomePage() {
     const db = getDatabase();
     const expenseRef = ref(db, "expenses/" + user.uid);
     const newExpenseRef = push(expenseRef);
-    set(newExpenseRef, newExpenseItem);
-
-    onValue(newExpenseRef, (snapshot) => {
-      const newExpenseKey = snapshot.key;
-      setExpenses((prevState) => {
-        return [
-          {
-            ...newExpenseItem,
-            date: new Date(newExpenseItem.date),
-            key: newExpenseKey,
-          },
-          ...prevState,
-        ];
+    set(newExpenseRef, newExpenseItem)
+      .then(() => {
+        dispatchAlert("Expense added successfully", "success");
+      })
+      .catch((error) => {
+        console.log("error", error);
+        dispatchAlert("Cant perform this action right now", "error");
       });
-    });
   };
   let filteredExpense = [];
   if (expense) {
