@@ -1,13 +1,7 @@
 import alertSlice from "../store/slice/alert";
 import store from "../store/store";
 
-export const authErrorAlert = (error) => {
-  let message;
-  if (error) {
-    message = error.code.split("/")[1];
-  } else {
-    message = "Something went wrong";
-  }
+export const dispatchAlert = (message) => {
   store.dispatch(
     alertSlice.actions.alertInfo({
       isOpen: true,
@@ -23,4 +17,13 @@ export const authErrorAlert = (error) => {
       })
     );
   }, 6000);
+};
+export const authErrorAlert = (error) => {
+  let message;
+  if (error) {
+    message = error.code.split("/")[1];
+  } else {
+    message = "Something went wrong";
+  }
+  dispatchAlert(message);
 };
