@@ -7,8 +7,25 @@
   padding: 0.5rem 0.9rem 0.5rem 0.9rem;
   text-align: center;
   border-radius: 5px;
+  animation: alert 0.5s ease;
 }
-
+@keyframes alert {
+  0% {
+    top: -5rem;
+  }
+  25% {
+    top: -2.5rem;
+  }
+  50% {
+    top: 0rem;
+  }
+  75% {
+    top: 2.5rem;
+  }
+  100% {
+    top: 5rem;
+  }
+}
 .alertMessage {
   font-weight: bold;
 }
