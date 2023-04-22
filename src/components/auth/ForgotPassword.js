@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import AuthBox from "../ui/AuthBox";
 import validateEmail from "../../utils/emailValidator";
 import CustomInput from "./customInput/CustomInput";
-
+import { auth } from "../../firebase";
+import { sendPasswordResetEmail } from "firebase/auth";
+import { dispatchAlert } from "../../utils/alert";
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
   const [emailIsValid, setEmailIsValid] = useState(null);
@@ -10,7 +12,18 @@ export default function ForgotPassword() {
     setEmail(e.target.value);
     setEmailIsValid(validateEmail(email));
   };
-  const handlePasswordResetButton = () => {};
+  const handlePasswordResetButton = () => {
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        // Password reset email sent successfully
+        dispatchAlert("Password reset email sent successfully", "success");
+      })
+      .catch((error) => {
+        // Error occurred while sending password reset email
+        dispatchAlert(error.code, "error");
+      });
+    setEmail("");
+  };
   return (
     <AuthBox>
       <CustomInput
