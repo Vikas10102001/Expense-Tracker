@@ -34,7 +34,7 @@ export default function NavBar() {
           Logout
         </button>
       ) : (
-        <div>
+        <div className="buttons-right">
           <button
             className="login-signup-logout-button logout-button"
             onClick={handleLogin}

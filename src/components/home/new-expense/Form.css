@@ -11,6 +11,9 @@ form {
   border-radius: 25px;
   font-size: medium;
 }
+form label{
+  width: 300px;
+}
 
 form input,
 button {

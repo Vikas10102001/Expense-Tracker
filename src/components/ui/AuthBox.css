@@ -1,8 +1,9 @@
 .auth-container {
   position: relative;
   top: 10rem;
-  left: 35vw;
+  left: 50%;
   width: 90%;
+  transform: translate(-50%);
   max-width: 30rem;
   border-radius: 10px;
   box-shadow: 0 2px 8px #00000042;
@@ -31,9 +32,4 @@
 .invalid-message {
   color: red;
   font-size: 0.8rem;
-}
-@media only screen and (max-width: 1150px) {
-  .auth-container {
-    left: calc(50vw - 15rem);
-  }
 }

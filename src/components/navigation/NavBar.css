@@ -29,8 +29,14 @@
   color: #5c2476;
   border: 1px solid #5c2476;
 }
-@media only screen and (max-width:750px){
-  .logo a{
+.buttons-right {
+  display: flex;
+}
+@media only screen and (max-width: 750px) {
+  .logo a {
     font-size: 1.2rem;
+  }
+  .logout-button {
+    margin: 5px;
   }
 }
