@@ -13,7 +13,8 @@
 
 .auth-container button {
   position: relative;
-  left: 38%;
+  left: 50%;
+  transform: translate(-60%);
 }
 .auth-container button:disabled {
   background-color: #d6d3d3;

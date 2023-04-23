@@ -1,7 +1,8 @@
 .alertContainer {
   position: fixed;
   top: 5rem;
-  left: 45%;
+  left: 50%;
+  transform: translate(-50%);
   width: max-content;
   min-width: 10%;
   padding: 0.5rem 0.9rem 0.5rem 0.9rem;
