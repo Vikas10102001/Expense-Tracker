@@ -69,7 +69,7 @@ export default function Signup() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (emailValidity === false) {
-        //this condition is false initially because null===false is true so the message will not appear if the fields are untouched
+        //this condition is false initially because null===false is false so the message will not appear if the fields are untouched
         setInvalidMessage("Please enter valid email");
       } else if (passwordValidity === false) {
         setInvalidMessage("Password must contain atleast 8 character");
