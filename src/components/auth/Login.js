@@ -110,7 +110,7 @@ export default function Login() {
       <div className="invalid-message">{invalidMessage}</div>
       <button
         className="login-signup-logout-button"
-        onClick={handleLogin}
+        type="submit"
         disabled={!formIsValid}
       >
         Login
