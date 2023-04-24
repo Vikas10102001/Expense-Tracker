@@ -87,7 +87,7 @@ export default function Login() {
     dispatch(login({ email: enteredEmail.val, password: enteredPassword.val }));
   };
   return (
-    <AuthBox>
+    <AuthBox handleSubmitForm={handleLogin}>
       <CustomInput
         type="text"
         id="email"
@@ -105,6 +105,7 @@ export default function Login() {
         isValid={enteredPassword.isValid}
         onChange={handlePasswordOnChange}
         onBlur={handleValidatePassword}
+        autoComplete="off"
       />
       <div className="invalid-message">{invalidMessage}</div>
       <button

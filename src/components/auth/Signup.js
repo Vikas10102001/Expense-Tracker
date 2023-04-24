@@ -18,7 +18,7 @@ export default function Signup() {
       authErrorAlert(authError);
     }
     dispatch(authSlice.actions.clearError());
-  }, [authError,dispatch]);
+  }, [authError, dispatch]);
   const [formIsValid, setFormIsValid] = useState(false);
   const [invalidMessage, setInvalidMessage] = useState("");
   const [enteredEmail, dispatchEmail] = useReducer(
@@ -131,6 +131,7 @@ export default function Signup() {
         isValid={enteredPassword.isValid}
         onChange={handlePasswordOnChange}
         onBlur={handleValidatePassword}
+        autoComplete="off"
       />
       <CustomInput
         type="password"
@@ -140,6 +141,7 @@ export default function Signup() {
         onBlur={handleValidateConfirmPassword}
         isValid={enteredConfirmPassword.isValid}
         value={enteredConfirmPassword.val}
+        autoComplete="off"
       />
       <div className="invalid-message">{invalidMessage}</div>
       <button

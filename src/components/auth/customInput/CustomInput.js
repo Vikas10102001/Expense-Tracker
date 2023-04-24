@@ -8,11 +8,18 @@ export default function CustomInput({
   type,
   isValid,
   onBlur,
+  autoComplete,
 }) {
   return (
     <div className={`input-container ${isValid === false ? "invalid" : ""}`}>
       <label htmlFor={id}>{label}</label>
-      <input type={type} onChange={onChange} value={value} onBlur={onBlur} />
+      <input
+        type={type}
+        onChange={onChange}
+        value={value}
+        onBlur={onBlur}
+        autoComplete={autoComplete}
+      />
     </div>
   );
 }
