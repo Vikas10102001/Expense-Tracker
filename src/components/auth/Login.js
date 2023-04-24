@@ -92,6 +92,7 @@ export default function Login() {
         type="text"
         id="email"
         label="Email"
+        name="email"
         value={enteredEmail.val}
         isValid={enteredEmail.isValid}
         onChange={handleEmailOnChange}
@@ -101,6 +102,7 @@ export default function Login() {
         type="password"
         id="password"
         label="Password"
+        name="password"
         value={enteredPassword.val}
         isValid={enteredPassword.isValid}
         onChange={handlePasswordOnChange}

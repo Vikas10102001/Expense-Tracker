@@ -113,10 +113,11 @@ export default function Signup() {
     );
   };
   return (
-    <AuthBox>
+    <AuthBox handleSubmitForm={handleSignUp}>
       <CustomInput
         type="text"
         id="email"
+        name="email"
         label="Email"
         value={enteredEmail.val}
         isValid={enteredEmail.isValid}
@@ -126,6 +127,7 @@ export default function Signup() {
       <CustomInput
         type="password"
         id="password"
+        name="password"
         label="Password"
         value={enteredPassword.val}
         isValid={enteredPassword.isValid}
@@ -135,6 +137,7 @@ export default function Signup() {
       />
       <CustomInput
         type="password"
+        name="password"
         id="confirm-password"
         label="Confirm password"
         onChange={handleConfirmPasswordOnChange}
@@ -147,7 +150,7 @@ export default function Signup() {
       <button
         className="login-signup-logout-button"
         disabled={!formIsValid}
-        onClick={handleSignUp}
+        type="submit"
       >
         Signup
       </button>
