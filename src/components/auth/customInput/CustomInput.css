@@ -1,6 +1,5 @@
 .input-container {
   display: flex;
-  margin: 1rem 0;
   flex-wrap: wrap;
 }
 .input-container label {
@@ -9,6 +8,8 @@
   font-weight: bold;
   padding: 0.5rem;
   min-width: 90px;
+  display: flex;
+  align-items: center;
 }
 
 .input-container input {
