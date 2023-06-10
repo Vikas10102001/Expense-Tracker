@@ -93,6 +93,7 @@ export default function Login() {
         id="email"
         label="Email"
         name="email"
+        placeholder="provikas2001@gmail.com"
         value={enteredEmail.val}
         isValid={enteredEmail.isValid}
         onChange={handleEmailOnChange}
@@ -103,6 +104,7 @@ export default function Login() {
         id="password"
         label="Password"
         name="password"
+        placeholder="test1234"
         value={enteredPassword.val}
         isValid={enteredPassword.isValid}
         onChange={handlePasswordOnChange}

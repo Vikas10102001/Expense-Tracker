@@ -10,6 +10,7 @@ export default function CustomInput({
   onBlur,
   autoComplete,
   name,
+  placeholder,
 }) {
   return (
     <div className={`input-container ${isValid === false ? "invalid" : ""}`}>
@@ -18,6 +19,7 @@ export default function CustomInput({
         type={type}
         onChange={onChange}
         value={value}
+        placeholder={placeholder}
         onBlur={onBlur}
         autoComplete={autoComplete}
         name={name}
